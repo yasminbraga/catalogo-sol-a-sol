@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+:root {
+  --primary-color: #F9A731;
+  --secondary-color: #545454;
+  --secondary-color-light: #AAAAAA;
+  --field-color: #F0F0FD;
+  --field-font: #CCCCCC;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  height: 100%;
+  background: #fafaf8;
+}
+
+body, input, textarea, button {
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.09);
+}
+
+.content {
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.button {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: .75rem;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.button.submit {
+  background-color: var(--primary-color);
+
+  transition: background 300ms;
+}
+
+.button.submit:hover {
+  background-color: rgb(156, 92, 3);
+}
+
+.button.edit {
+  background: #237BCD;
+  margin-bottom: 5px;
+
+  transition: background 300ms;
+}
+
+.button.edit:hover {
+  background: var(--field-font);
+}
+
+.button.delete {
+  background: var(--field-font);
+
+  transition: background 300ms;
+}
+
+.button.delete:hover {
+  background: #FB3973;
+}
+
+.card {
+  background-color: white;
+  max-width: 700px;
+  padding: 32px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.card-header h3 {
+  color: var(--primary-color);
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.field-label {
+  margin-bottom: 8px;
+  color: var(--secondary-color);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.label {
+  color: var(--secondary-color);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  color: var(--secondary-color-light);
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.side-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item input,
+.item textarea,
+.item select {
+  width: 100%;
+  background: var(--field-color);
+  border-radius: 5px;
+  padding: 14px;
+  margin-bottom: 8px;
+  border: none;
+
+  font-size: 14px;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.item input::placeholder,
+.item textarea::placeholder {
+  font-size: 14px;
+  color: var(--field-font);
+}

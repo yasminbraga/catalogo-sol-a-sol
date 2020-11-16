@@ -1,0 +1,59 @@
+<div class="item">
+  <div class="field-label">Nome</div>
+  <div>
+    <input 
+      type="text"
+      name="name"
+      placeholder="Nome do produto"
+      value="{{product.name}}"
+    >
+  </div>
+</div>
+
+<div class="item">
+  <div class="field-label">Nome</div>
+  <div>
+    <select name="category">
+      {% for category in categories %}
+        <option value="{{category.id}}">{{ category.name }}</option>
+      {% endfor%}
+    </select>
+  </div>
+</div>
+
+<div class="item">
+  <div class="field-label">Descrição</div>
+  <div>
+    <textarea 
+      name="description" 
+      cols="30" 
+      rows="10"
+      placeholder="Descriçao do produto"
+    >{{product.description}}</textarea>
+  </div>
+</div>
+
+<div class="item">
+  <div class="field-label">Preço</div>
+  <div>
+    <input
+      type="text"
+      name="price"
+      placeholder="Preço do produto"
+      value="{{product.price}}"
+      onkeydown="Mask.apply(this, 'formatBRL')"
+    >
+  </div>
+</div>
+
+<div class="item">
+  <div class="field-label">Quantidade</div>
+  <div>
+    <input 
+      type="number" 
+      name="quantity"
+      placeholder="Estoque Disponível"
+      value="{{product.quantity}}"
+    >
+  </div>
+</div>

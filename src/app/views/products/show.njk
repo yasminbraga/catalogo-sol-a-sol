@@ -1,0 +1,43 @@
+{% extends "../layout.njk" %}
+
+{% block content %}
+  <div class="content">
+    <section class="card shadow">
+      <div class="card-image">
+
+      </div>
+      <div class="card-header">
+        <h3>{{product.name}}</h3>
+      </div>
+
+      <div class="card-content">
+        <div class="card-row">
+          <div class="label">Descrição</div>
+          <p>{{product.description}}</p>
+        </div>
+        <div class="card-row">
+          <div class="label">Preço</div>
+          <p>R$ {{product.price}},00</p>
+        </div>
+
+        <div class="side-content">
+          <div class="card-row">
+            <div class="label">Quantidade</div>
+            <p>{{product.quantity}}</p>
+          </div>
+
+          <div class="card-row">
+            <div class="label">Categoria</div>
+            <p>óculos</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-buttons">
+        <button class="button edit">Editar produto</button>
+        <button class="button delete">Deletar produto</button>
+      </div>
+
+    </section>
+  </div>
+{% endblock %}
