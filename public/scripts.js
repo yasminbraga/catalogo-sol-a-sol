@@ -13,3 +13,14 @@ const Mask = {
     }).format(value/100)
   }
 }
+
+
+const ImageUpload = {
+  input: "",
+  uploadLimit: 1,
+  preview: document.querySelector("#image-preview"),
+  files: [],
+  handleFileInput(event) {
+    console.log(event.target)
+  }
+}

@@ -33,8 +33,13 @@ module.exports = {
 
     return res.render('products/create', {categories})
   },
-  update(req, res) {
+  async edit(req, res) {
+    let product = await Product.findOne(req.params.id)
 
+    return res.render('products/edit')
+  },
+  update(req, res) {
+    
   },
   delete(req, res) {
     

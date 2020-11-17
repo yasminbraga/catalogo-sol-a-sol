@@ -11,7 +11,7 @@
 </div>
 
 <div class="item">
-  <div class="field-label">Nome</div>
+  <div class="field-label">Categoria</div>
   <div>
     <select name="category">
       {% for category in categories %}
@@ -55,5 +55,32 @@
       placeholder="Estoque Disponível"
       value="{{product.quantity}}"
     >
+  </div>
+</div>
+
+<div class="item">
+  <div class="field-label">Imagem do produto</div>
+  <div>
+    <input 
+      type="file" 
+      name="image" 
+      id="product-image" 
+      accept="image/*"
+      onchange="ImageUpload.handleFileInput(event)"
+    >
+  </div>
+  <div class="image-preview">
+    {% if productImage %}
+      <div class="product-image-preview" id={{productImage.id}}>
+        <img src="{{productImage.src}}" alt="{{productImage.name}}">
+        <i
+          class="material-icons"
+          onclick="ImageUpload.removeOldImage(event)"
+        >
+          close
+        </i>
+        <input type="hidden" name="removed_images">
+      </div>
+    {% endif %}
   </div>
 </div>

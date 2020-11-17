@@ -1,1 +1,9 @@
 {% extends "../layout.njk" %}
+
+{% block content %}
+  <div class="content">
+    {% for product in products%}
+      <p>{{product.name}}</p>
+    {% endfor %}
+  </div>
+{% endblock content %}
