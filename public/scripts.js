@@ -21,6 +21,10 @@ const ImageUpload = {
   preview: document.querySelector("#image-preview"),
   files: [],
   handleFileInput(event) {
-    console.log(event.target)
-  }
+    const {files: fileProduct} = event.target
+    ImageUpload.input = event.target
+
+    if (ImageUpload.hasLimit(event)) return
+  },
+  
 }
