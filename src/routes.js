@@ -10,11 +10,12 @@ routes.get('/', ProductController.index)
 routes.get('/products', ProductController.index)
 routes.get('/products/create', ProductController.create)
 routes.post('/products', multer.single("image"), ProductController.store)
+routes.get('/products/:id/edit', ProductController.edit)
+routes.put('/products', multer.single("image"), ProductController.update)
 routes.get('/products/:id', ProductController.show)
-routes.get('/products/:id', ProductController.edit)
 
 
-routes.get('/categories', CategoryController.create)
+routes.get('/categories/create', CategoryController.create)
 routes.post('/categories', CategoryController.store)
 
 module.exports = routes

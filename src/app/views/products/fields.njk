@@ -13,9 +13,9 @@
 <div class="item">
   <div class="field-label">Categoria</div>
   <div>
-    <select name="category">
+    <select name="category_id">
       {% for category in categories %}
-        <option value="{{category.id}}">{{ category.name }}</option>
+        <option value="{{category.id}}"{% if product.category_id == category.id %} selected {% endif %}>{{ category.name }}</option>
       {% endfor%}
     </select>
   </div>
@@ -60,27 +60,30 @@
 
 <div class="item">
   <div class="field-label">Imagem do produto</div>
-  <div>
-    <input 
-      type="file" 
-      name="image" 
-      id="product-image" 
-      accept="image/*"
-      onchange="ImageUpload.handleFileInput(event)"
-    >
+  <div class="images">
+    <div class="image-upload">
+      <input 
+        type="file" 
+        name="image" 
+        id="image-input" 
+        accept="image/*"
+        onchange="ImageUpload.handleFileInput(event)"
+      >
+    </div>
+    <div id="image-preview">
+      {% if productImage %}
+        <div class="photo" id={{productImage.id}}>
+          <img src="{{productImage.src}}" alt="{{productImage.name}}">
+          <i
+            class="material-icons"
+            onclick="ImageUpload.removeOldFile(event)"
+          >
+            close
+          </i>
+        </div>
+        <input type="hidden" name="removed_files">
+      {% endif %}
+    </div>
   </div>
-  <div class="image-preview">
-    {% if productImage %}
-      <div class="product-image-preview" id={{productImage.id}}>
-        <img src="{{productImage.src}}" alt="{{productImage.name}}">
-        <i
-          class="material-icons"
-          onclick="ImageUpload.removeOldImage(event)"
-        >
-          close
-        </i>
-        <input type="hidden" name="removed_images">
-      </div>
-    {% endif %}
-  </div>
+
 </div>

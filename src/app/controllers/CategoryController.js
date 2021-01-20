@@ -7,7 +7,7 @@ module.exports = {
   async store(req, res) {
     try {
       
-      const name = 'óculos'
+      const {name} = req.body
       
       const category = await Category.create({name})
       

@@ -8,7 +8,7 @@ module.exports = {
     {
       type: DataTypes.INTEGER,
       allowNul: false,
-      references: { model: 'products', key: 'id'},
+      references: { model: 'categories', key: 'id'},
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     })

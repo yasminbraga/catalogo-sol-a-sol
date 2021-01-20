@@ -15,8 +15,8 @@
 }
 
 html, body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 
 body {
@@ -145,3 +145,88 @@ header {
   font-size: 14px;
   color: var(--field-font);
 }
+
+/* IMAGE UPLOAD */
+.item .images {
+  display: flex;
+  flex-direction: column;
+}
+
+.item #image-upload {
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 150px;
+  height: 150px;
+  margin-right: 10px;
+}
+
+.item #image-upload i {
+  color: #999999;
+  font-size: 50px;
+}
+
+.item .image-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.item #image-preview {
+
+}
+
+.item #image-preview .product-image,
+.item #image-preview .photo {
+  position: relative;
+  width: 150px;
+  height: 150px;
+
+  margin-bottom: 10px;
+}
+
+.product-image img,
+.item #image-preview .photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.product-image i,
+.item #image-preview .photo i {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: rgba(255, 255, 255, 0.8);
+  color: red;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 200%;
+  cursor: pointer;
+
+  transition: opacity 200ms;
+
+  opacity: 0;
+}
+
+.product-image:hover i,
+.item #image-preview .photo:hover i {
+  opacity: 1;
+}
+
+
+
