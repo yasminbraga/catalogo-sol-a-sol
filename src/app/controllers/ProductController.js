@@ -1,6 +1,10 @@
+const { unlinkSync } = require('fs')
+
 const Product = require('../models/Product')
 const Category = require('../models/Category')
 const File = require('../models/File')
+
+const { formatPrice } = require('../../lib/utils')
 
 
 module.exports = {
@@ -12,9 +16,12 @@ module.exports = {
   async show(req, res) {
     const { id } = req.params
 
-    const product = await Product.findOne({ where: { id }})
+    const product = await Product.findByPk(id)
+    product.dataValues.price = formatPrice(product.dataValues.price)
 
-    return res.render('products/show', {product})
+    const category = await Category.findByPk(product.dataValues.category_id)
+
+    return res.render('products/show', {product, category})
   },
   async create(req, res) {
     const categories = await Category.findAll()
@@ -42,7 +49,7 @@ module.exports = {
         product_id: product.id
       })
   
-      return res.redirect(`/products/${req.body.id}`)
+      return res.redirect(`/products/${product.id}`)
       
     } catch (error) {
       console.error(error)
@@ -76,6 +83,8 @@ module.exports = {
   async update(req, res) {
     try {
 
+      const {id, name, description, price, category_id} = req.body
+
       if (req.file) {
         await File.create({
           name: req.file.filename,
@@ -98,23 +107,42 @@ module.exports = {
       }
 
       await Product.update({
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        category_id: req.body.category_id
+        name,
+        description,
+        price,
+        category_id
       }, {
         where: {
           id: req.body.id
         }
       })
 
-      return res.redirect(`/products/${req.body.id}`)
+      return res.redirect(`/products/${id}`)
 
     } catch (error) {
       console.error(error)
     }
   },
-  delete(req, res) {
-
+  async delete(req, res) {
+    try {
+      const productImage = await File.findOne({
+        where: {
+          product_id: req.body.id
+        }
+      })
+      
+      unlinkSync(productImage.dataValues.path)
+  
+      await Product.destroy({
+        where: {
+          id: req.body.id
+        }
+      })
+  
+      return res.redirect('/products/create')
+    } catch (error) {
+      console.error(error)
+    }
+    
   }
 }

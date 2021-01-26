@@ -17,7 +17,7 @@
         </div>
         <div class="card-row">
           <div class="label">Preço</div>
-          <p>R$ {{product.price}},00</p>
+          <p>{{product.price}}</p>
         </div>
 
         <div class="side-content">
@@ -28,7 +28,7 @@
 
           <div class="card-row">
             <div class="label">Categoria</div>
-            <p>óculos</p>
+            <p>{{category.name}}</p>
           </div>
         </div>
       </div>
@@ -37,7 +37,6 @@
         <a href="/products/{{product.id}}/edit">
           <button class="button edit">Editar produto</button>
         </a>
-        <button class="button delete">Deletar produto</button>
       </div>
 
     </section>

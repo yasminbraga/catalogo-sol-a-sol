@@ -13,6 +13,7 @@ routes.post('/products', multer.single("image"), ProductController.store)
 routes.get('/products/:id/edit', ProductController.edit)
 routes.put('/products', multer.single("image"), ProductController.update)
 routes.get('/products/:id', ProductController.show)
+routes.delete('/products', ProductController.delete)
 
 
 routes.get('/categories/create', CategoryController.create)

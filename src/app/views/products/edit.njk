@@ -20,6 +20,26 @@
         <button class="button submit" type="submit">Salvar</button>
         
       </form>
+
+      <form action="/products?_method=DELETE" method="post" id="form-delete">
+        <input 
+          type="hidden"
+          name="id"
+          value={{product.id}}
+        >
+        <button class="button delete">Deletar produto</button>
+      </form>
+
     </section>
   </div>
+
+  <script>
+    const formDelete = document.querySelector("#form-delete")
+    formDelete.addEventListener("submit", function(event) {
+      const confirmation = confirm("Deseja deletar o produto?")
+      if (!confirmation) {
+        event.preventDefault()
+      }
+    })
+  </script>
 {% endblock %}
